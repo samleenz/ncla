@@ -2,10 +2,9 @@ Package: ncla
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
-Author: 
+Authors@R: 
     person("Samuel", "Lee", , "lee.sa@wehi.edu.au", role = c("aut", "cre"))
-Maintainer: Samuel Lee
-Description: Code for doing science with 
+Description: Code for doing science with. more to come. 
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -14,4 +13,8 @@ Suggests:
 Config/testthat/edition: 3
 Imports: 
     stats,
-    philentropy
+    philentropy,
+    stringr,
+    umap,
+    RColorBrewer,
+    matrixStats

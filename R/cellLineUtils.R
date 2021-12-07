@@ -5,7 +5,7 @@
 #' all in UPPER case, no punctuation, and some other idiosyncrasies removed
 #'
 #' @param x character vector of cell IDs
-#' @param dataset character denoting which cell line the IDs \code are from
+#' @param dataset character denoting which cell line the IDs `x` are from
 #'     One of
 #'       - nci60Full
 #'       - klijn2015Full

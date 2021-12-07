@@ -9,7 +9,7 @@ cleanCellID(x, dataset)
 \arguments{
 \item{x}{character vector of cell IDs}
 
-\item{dataset}{character denoting which cell line the IDs \code are from
+\item{dataset}{character denoting which cell line the IDs `x` are from
 One of
   - nci60Full
   - klijn2015Full

@@ -1,0 +1,10 @@
+Package: ncla
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Samuel Lee
+Maintainer: Samuel Lee <lee.sa@wehi.edu.au>
+Description: Code for doing science with 
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true

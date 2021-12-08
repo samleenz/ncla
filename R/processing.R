@@ -68,11 +68,11 @@ pcaTopN <- function(x, i){
 #' @examples
 subsetGenes <- function(x, f){
   if(f == "Hallmarks"){
-    genes <- functions$hallmarkENSG[functions$hallmarkENSG %in% colnames(x)]
+    genes <- gs_hallmark[gs_hallmark %in% colnames(x)]
   } else if(f == "L1000"){
-    genes <- functions$l1000ENSG[functions$l1000ENSG %in% colnames(x)]
+    genes <- gs_l1000[gs_l1000 %in% colnames(x)]
   } else if(f == "Stable"){
-    genes <- functions$stableENSG[functions$stableENSG %in% colnames(x)]
+    genes <- gs_l1000[gs_l1000 %in% colnames(x)]
   } else if(startsWith(f, "Custom")) {
     # f is the form 'Custom__<name>' where name should point to a vector of
     # gene names in the environment

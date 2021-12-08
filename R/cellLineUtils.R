@@ -17,11 +17,11 @@
 #' @examples
 cleanCellID <- function(x, dataset){
   # check source is a valid column name
-  if(! dataset %in% functions$clean_IDs$dataset){
+  if(! dataset %in% clean_cellid$dataset){
     stop(paste(dataset, "is not a valid data-set selection"))
   }
 
-  df <- functions$clean_IDs[functions$clean_IDs$dataset == dataset, ]
+  df <- clean_cellid[clean_cellid$dataset == dataset, ]
   df <- df[match(x, df$original_id), ]
 
   df[["cellid"]]

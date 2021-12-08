@@ -53,7 +53,7 @@ trom2 <- function(x, z = 1.5){
         overlap <-  length(intersect(ass_genes[[i]], ass_genes[[j]]))
         total   <- ncol(x)
 
-        fisher_p <- fisher.test(
+        fisher_p <- stats::fisher.test(
           matrix(
             c(
               overlap,
@@ -68,8 +68,8 @@ trom2 <- function(x, z = 1.5){
         )$p.value
 
         # adjust p-values by number of tests before assigning
-        s[i, j] <- p.adjust(fisher_p, "BH", n = num_tests)
-        s[j, i] <- p.adjust(fisher_p, "BH", n = num_tests)
+        s[i, j] <- stats::p.adjust(fisher_p, "BH", n = num_tests)
+        s[j, i] <- stats::p.adjust(fisher_p, "BH", n = num_tests)
       }
     }
   }
@@ -103,7 +103,7 @@ trom_ag <- function(ag1, ag2, total, n_test = 1){
   overlap <- length(intersect(ag1, ag2))
   total <- total # just for readiblity sake
 
-  fisher_p <- fisher.test(
+  fisher_p <- stats::fisher.test(
     matrix(
       c(
         overlap,
@@ -117,7 +117,7 @@ trom_ag <- function(ag1, ag2, total, n_test = 1){
     alternative='greater'
   )$p.value
 
-  -log10(p.adjust(fisher_p, "BH", n = n_test))
+  -log10(stats::p.adjust(fisher_p, "BH", n = n_test))
 
 }
 

@@ -4,7 +4,7 @@
 \alias{plotGG_RLE_EDA}
 \title{plotRLE (ggplot edition)}
 \usage{
-plotGG_RLE_EDA(exprs, group, pal = NULL, title = NA)
+plotGG_RLE_EDA(exprs, group, pal = NULL, title = "")
 }
 \arguments{
 \item{exprs}{row matrix of gene expression (samples as rows)}

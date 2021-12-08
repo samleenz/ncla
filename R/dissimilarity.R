@@ -29,8 +29,7 @@ dissim <- function(x, f, g = NULL){
   } else if(f == "pearson"){
     d <- (1 - stats::cor(t(x), method = 'pearson')) / 2
   } else if(f == "spearman"){
-    # d <- 1 - cor(t(x), method = 'spearman')
-    d <- (1 - cor(t(x), method = 'spearman')) / 2
+    d <- (1 - stats::cor(t(x), method = 'spearman')) / 2
   } else if(f == "jensen-shannon"){
     d <- philentropy::distance(
       x,
@@ -70,7 +69,9 @@ dissim <- function(x, f, g = NULL){
 #' diag(z) <- 1 added as this is a similarity matrix by definitation
 #' if diag not set to 1 cannot calc acos(cos(x))
 #'
-#'  @return
+#' @param x row matrix
+#'
+#'  @return n x n similarity matrix
 #'  @export
 #'
 #'  @examples

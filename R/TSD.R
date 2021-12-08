@@ -9,7 +9,6 @@
 #' @param g
 #'
 #' @return
-#' @export
 #'
 #' @examples
 calcRCD <- function(x, g=NULL){
@@ -27,7 +26,7 @@ calcRCD <- function(x, g=NULL){
   }
 
   # calculate pairwise RCCs (pearson correlation of Ranks)
-  RCC <- cor(x_rank_g, method = "pearson")
+  RCC <- stats::cor(x_rank_g, method = "pearson")
 
   # calcualte RCD
   #   sqrt(1-ReLU(RCC))
@@ -47,7 +46,6 @@ calcRCD <- function(x, g=NULL){
 #' @param g
 #'
 #' @return
-#' @export
 #'
 #' @examples
 calcSRJSD <- function(x, g = NULL){
@@ -76,8 +74,9 @@ calcSRJSD <- function(x, g = NULL){
 #'
 #' Optionally give a subset of genes to use as the "atlas genes" as vector g
 #'
-#' @param x
-#' @param g
+#' @param x row matrix
+#' @param g a character vector of feature names (colnames(x)) to use as atlas
+#' genes for TSD
 #'
 #' @return
 #' @export

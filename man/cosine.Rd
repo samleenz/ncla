@@ -10,10 +10,18 @@ if diag not set to 1 cannot calc acos(cos(x))}
 \usage{
 cosine(x)
 }
-\description{
-@return
+\arguments{
+\item{x}{row matrix
+
+ @return n x n similarity matrix
  @export
+
+ @examples}
 }
-\details{
-@examples
+\description{
+cosine: calculate the cosine similarity of rows of matrix x
+function form modeled on coss() from
+https://stackoverflow.com/questions/45377700/fast-computation-of-106-cosine-vector-similarities-in-r
+diag(z) <- 1 added as this is a similarity matrix by definitation
+if diag not set to 1 cannot calc acos(cos(x))
 }

@@ -45,7 +45,7 @@ transformData <- function(x, f){
 }
 
 pcaTopN <- function(x, i){
-  pca <- prcomp(x, scale. = TRUE)
+  pca <- stats::prcomp(x, scale. = TRUE)
 
   PCs <- pca$x[, 1:i]
 

@@ -1,3 +1,28 @@
+check_plotting_packages <- function(){
+  # check required packages exist
+  if (!requireNamespace("dplyr", quietly = TRUE)) {
+    stop("Package \"dplyr\" needed for this function to work. Please install it.",
+         call. = FALSE)
+  } else if (!requireNamespace("ggplot2", quietly = TRUE)) {
+    stop("Package \"ggplot2\" needed for this function to work. Please install it.",
+         call. = FALSE)
+  } else if (!requireNamespace("ggpubr", quietly = TRUE)) {
+    stop("Package \"ggpubr\" needed for this function to work. Please install it.",
+         call. = FALSE)
+  } else if (!requireNamespace("RColorBrewer", quietly = TRUE)) {
+    stop("Package \"RColorBrewer\" needed for this function to work. Please install it.",
+         call. = FALSE)
+  } else if (!requireNamespace("tibble", quietly = TRUE)) {
+    stop("Package \"tibble\" needed for this function to work. Please install it.",
+         call. = FALSE)
+  } else if (!requireNamespace("tidyr", quietly = TRUE)) {
+    stop("Package \"tidyr\" needed for this function to work. Please install it.",
+         call. = FALSE)
+  }
+}
+
+
+
 #' plotRLE (ggplot edition)
 #'
 #' Make a RLE plot with specific group colourings
@@ -13,7 +38,9 @@
 #' @export
 #'
 #' @examples
-plotGG_RLE_EDA <- function(exprs, group, pal = NULL, title = NA){
+plotGG_RLE_EDA <- function(exprs, group, pal = NULL, title = ""){
+  check_plotting_packages()
+
   # replace any punctuation in group with whitespace
   group <- stringr::str_replace_all(group, "[[:punct:]]", " ") |>
     as.factor()
@@ -33,18 +60,20 @@ plotGG_RLE_EDA <- function(exprs, group, pal = NULL, title = NA){
     tidyr::pivot_longer(-c(sample, group), names_to = "ensg", values_to = "rle")
 
   exprs_rle_long |>
-    arrange(group, sample) |>
-    ggplot(aes(interaction(sample, group), rle, col = group)) +
-    geom_boxplot(outlier.alpha = 0.1) +
+    dplyr::arrange(group, sample) |>
+    ggplot2::ggplot(ggplot2::aes(interaction(sample, group), rle, col = group)) +
+    ggplot2::geom_boxplot(outlier.alpha = 0.1) +
     ggpubr::theme_pubr(
       border = TRUE,
       legend = "right"
     ) +
-    theme(axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
-    scale_colour_manual(values = pal) +
-    labs(
+    ggplot2::theme(axis.text.x = ggplot2::element_blank(), axis.ticks.x = ggplot2::element_blank()) +
+    ggplot2::scale_colour_manual(values = pal) +
+    ggplot2::labs(
       title = title,
       x = NULL,
       y = NULL
     )
 }
+
+

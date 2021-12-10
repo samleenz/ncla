@@ -2,6 +2,8 @@
 #'
 #' given a data-set, z-score transform and get associated genes as per TROM method
 #'
+#' @references  Li, W.V., Chen, Y. & Li, J.J. Stat Biosci 9, 105–136 (2017).
+#'
 #' @param x a n x m data frame, normalised gene expression with *n* samples in rows
 #' @param z z-score threshold for associated genes
 #'
@@ -25,6 +27,19 @@ calcAssociatedGenes <- function(x, z = 1.5){
   ass_genes
 }
 
+#' Transcriptome Overlap Measure
+#'
+#' Calculate pairwise TROM scores for a set of samples
+#'
+#' @references  Li, W.V., Chen, Y. & Li, J.J. Stat Biosci 9, 105–136 (2017).
+#'
+#' @param x a n x m data frame, normalised gene expression with *n* samples in rows
+#' @param z z-score threshold for associated genes
+#'
+#' @return n x n matrix of TROM similarity scores
+#' @export
+#'
+#' @examples
 trom2 <- function(x, z = 1.5){
 
   # get associated genes for each sample

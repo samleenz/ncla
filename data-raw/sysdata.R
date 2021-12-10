@@ -10,11 +10,18 @@ load(file.path(dir, "data/stableENSGgenes.RData"))
 load(file.path(dir, "data/clean_cell_ids.RData"))
 
 
-gs_hallmark <- hallmarkENSG
-gs_l1000 <- l1000ENSG
-gs_stable <- stableENSG
+gs <- list(
+  Hallmarks = hallmarkENSG,
+  L1000 = l1000ENSG,
+  Stable = stableENSG
+)
+
+# gs_hallmark <- hallmarkENSG
+# gs_l1000 <- l1000ENSG
+# gs_stable <- stableENSG
 
 clean_cellid <- clean_IDs
 
-use_data(gs_hallmark, gs_l1000, gs_stable, clean_cellid, internal = TRUE)
+# use_data(gs_hallmark, gs_l1000, gs_stable, clean_cellid, internal = TRUE)
+use_data(gs, clean_cellid, internal = TRUE)
 

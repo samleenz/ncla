@@ -67,30 +67,27 @@ pcaTopN <- function(x, i){
 #'
 #' @examples
 subsetGenes <- function(x, f){
-  if(f == "Hallmarks"){
-    genes <- gs_hallmark[gs_hallmark %in% colnames(x)]
-  } else if(f == "L1000"){
-    genes <- gs_l1000[gs_l1000 %in% colnames(x)]
-  } else if(f == "Stable"){
-    genes <- gs_l1000[gs_l1000 %in% colnames(x)]
-  } else if(startsWith(f, "Custom")) {
+  if(startsWith(f, "Custom")){
     # f is the form 'Custom__<name>' where name should point to a vector of
-    # gene names in the environment
+    # gene names in the global environment
     nme <- stringr::str_split(f, "__", simplify = T)[2]
     g <- mget(nme, ifnotfound = FALSE, envir = .GlobalEnv)[[1]]
+
     if(isFALSE(g)){
       # if nme not found in namespace
-      message(paste(nme,  "did not match, returning x"))
-      genes <- colnames(x)
-    } else {
+      stop(paste(nme,  "not found in the global environment"))
+    } else{
       genes <- g[g %in% colnames(x)]
     }
-  } else {
-    message(paste(f,  "did not match, returning x"))
+  } else if(f %in% names(gs)){
+    genes <- gs[[f]]
+    genes <- genes[genes %in% colnames(x)]
+  } else if(f == "Full"){
     genes <- colnames(x)
-
-    apply
+  } else{
+    stop(paste(f, "not found"))
   }
+
 
   x[, genes]
 }

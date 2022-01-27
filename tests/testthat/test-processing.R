@@ -14,8 +14,8 @@ test_that("custom gene-sets work", {
 })
 
 test_that("geneset name is valid", {
-  expect_(subsetGenes(df, "Hallmarks")),
-  expect_error(subsetGenes(df, "fail")),
-  expect_equal(subsetGenes(df, "Full"),df),
+  # expect_(subsetGenes(df, "Hallmarks")),
+  expect_error(subsetGenes(df, "fail"))
+  expect_equal(subsetGenes(df, "Full"),df)
   expect_error(subsetGenes(df, "haLlMarKs"))
 })

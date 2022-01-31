@@ -1,5 +1,7 @@
 #' dissim
 #'
+#' Calculate a dissimilarity matrix using a specified metric (or measure)
+#'
 #' @param x row matrix
 #' @param f dissimilarity measure to use; one of
 #'   - "L1"
@@ -10,10 +12,11 @@
 #'   - "JSD"
 #'   - "bhattacharyya"
 #'   - "TSD"
-#'
 #'   note: jensen-shannon and bhattacharyya distance use relative
 #'   frequencies to calculate probability vectors and will
 #'   fail if data contains negative values
+#' @param g optional, the gene space to use for TSD, if NULL -
+#'   all genes will be used.
 #'
 #' @return n x n dissimilarity matrix of x using function type f
 #' @export

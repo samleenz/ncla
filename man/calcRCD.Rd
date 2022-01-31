@@ -7,7 +7,10 @@
 calcRCD(x, g = NULL)
 }
 \arguments{
-\item{g}{}
+\item{x}{row matrix}
+
+\item{g}{a character vector of feature names (colnames(x)) to use as atlas
+genes for TSD}
 }
 \value{
 

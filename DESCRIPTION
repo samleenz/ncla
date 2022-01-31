@@ -1,7 +1,7 @@
 Package: ncla
 Type: Package
 Title: What the Package Does (Title Case)
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person("Samuel", "Lee", , "lee.sa@wehi.edu.au", role = c("aut", "cre"))
 Description: Code for doing science with. more to come. 

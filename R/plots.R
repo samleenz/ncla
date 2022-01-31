@@ -42,7 +42,7 @@ plotGG_RLE_EDA <- function(exprs, group, pal = NULL, title = ""){
   check_plotting_packages()
 
   # replace any punctuation in group with whitespace
-  group <- stringr::str_replace_all(group, "[[:punct:]]", " ") |>
+  group <- stringr::str_replace_all(group, "[[:punct:]]", " ") %>%
     as.factor()
 
   ## set palette to Set1 if null
@@ -53,14 +53,14 @@ plotGG_RLE_EDA <- function(exprs, group, pal = NULL, title = ""){
   # generate RLE data: log(exprs) - geneWise median (colMed)
   exprs_rle <- log2(exprs + 1) - matrixStats::colMedians(log2(exprs + 1))
 
-  exprs_rle_long <- exprs_rle |>
-    as.data.frame() |>
-    tibble::rownames_to_column(var = "sample") |>
-    dplyr::mutate(group = group) |>
+  exprs_rle_long <- exprs_rle %>%
+    as.data.frame() %>%
+    tibble::rownames_to_column(var = "sample") %>%
+    dplyr::mutate(group = group) %>%
     tidyr::pivot_longer(-c(sample, group), names_to = "ensg", values_to = "rle")
 
-  exprs_rle_long |>
-    dplyr::arrange(group, sample) |>
+  exprs_rle_long %>%
+    dplyr::arrange(group, sample) %>%
     ggplot2::ggplot(ggplot2::aes(interaction(sample, group), rle, col = group)) +
     ggplot2::geom_boxplot(outlier.alpha = 0.1) +
     ggpubr::theme_pubr(
@@ -99,7 +99,7 @@ plotGG_PCA_eda <- function(dat, group, PCs = c(1,2), pal = NULL, title = ""){
   check_plotting_packages()
 
   # replace any punctuation in group with whitespace
-  group <- stringr::str_replace_all(group, "[[:punct:]]", " ") |>
+  group <- stringr::str_replace_all(group, "[[:punct:]]", " ") %>%
     as.factor()
 
   ## set palette to Set1 if null
@@ -111,9 +111,9 @@ plotGG_PCA_eda <- function(dat, group, PCs = c(1,2), pal = NULL, title = ""){
   pVarX <- summary(dat)$importance[2, PCs[1]]
   pVarY <- summary(dat)$importance[2, PCs[2]]
 
-  dat$x |>
-    as.data.frame() |>
-    dplyr::mutate(group = group) |>
+  dat$x %>%
+    as.data.frame() %>%
+    dplyr::mutate(group = group) %>%
     ggplot2::ggplot(
       ggplot2::aes(
         x = get(paste0("PC", PCs[1])),
@@ -143,9 +143,9 @@ plotGG_PCA_eda <- function(dat, group, PCs = c(1,2), pal = NULL, title = ""){
 plotGG_PCAscree_eda <- function(dat, title = ""){
   check_plotting_packages()
 
-  summary(dat)$importance[2, ] |>
-    tibble::enframe(name = "PC", "pve") |>
-    dplyr::mutate(PC_int = as.numeric(str_remove(PC, "PC"))) |>
+  summary(dat)$importance[2, ] %>%
+    tibble::enframe(name = "PC", "pve") %>%
+    dplyr::mutate(PC_int = as.numeric(str_remove(PC, "PC"))) %>%
     ggplot2::ggplot(ggplot2::aes(PC_int, 100*pve)) +
     ggplot2::geom_col() +
     ggpubr::theme_pubr(border = TRUE, legend = "right") +
@@ -174,7 +174,7 @@ plotGG_UMAP_eda <- function(dat, group, pal = NULL, title = ""){
   check_plotting_packages()
 
   # replace any punctuation in group with whitespace
-  group <- stringr::str_replace_all(group, "[[:punct:]]", " ") |>
+  group <- stringr::str_replace_all(group, "[[:punct:]]", " ") %>%
     as.factor()
 
   ## set palette to Set1 if null
@@ -182,10 +182,10 @@ plotGG_UMAP_eda <- function(dat, group, pal = NULL, title = ""){
     pal <- RColorBrewer::brewer.pal(length(unique(group)), "Set1")
   }
 
-  dat$layout |>
-    as.data.frame() |>
-    tibble::rownames_to_column(var = "sample") |>
-    dplyr::mutate(group = group) |>
+  dat$layout %>%
+    as.data.frame() %>%
+    tibble::rownames_to_column(var = "sample") %>%
+    dplyr::mutate(group = group) %>%
     ggplot2::ggplot(ggplot2::aes(V1, V2, col = group)) +
     ggplot2::geom_point(size = 3) +
     ggpubr::theme_pubr(border = TRUE, legend = "right") +
@@ -215,7 +215,7 @@ plotGG_MDS_eda <- function(dat, group, pal = NULL, title = ""){
   check_plotting_packages()
 
   # replace any punctuation in group with whitespace
-  group <- stringr::str_replace_all(group, "[[:punct:]]", " ") |>
+  group <- stringr::str_replace_all(group, "[[:punct:]]", " ") %>%
     as.factor()
 
   ## set palette to Set1 if null
@@ -223,10 +223,10 @@ plotGG_MDS_eda <- function(dat, group, pal = NULL, title = ""){
     pal <- RColorBrewer::brewer.pal(length(unique(group)), "Set1")
   }
 
-  dat |>
-    as.data.frame() |>
-    tibble::rownames_to_column(var = "sample") |>
-    dplyr::mutate(group = group) |>
+  dat %>%
+    as.data.frame() %>%
+    tibble::rownames_to_column(var = "sample") %>%
+    dplyr::mutate(group = group) %>%
     ggplot2::ggplot(ggplot2::aes(V1, V2, col = group)) +
     ggplot2::geom_point(size = 3) +
     ggpubr::theme_pubr(border = TRUE, legend = "right") +

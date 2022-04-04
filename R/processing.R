@@ -58,7 +58,7 @@ pcaTopN <- function(x, i){
 #'
 #' @param x row matrix where columns are ENSG labelled gens
 #' @param f character name of geneset to use
-#'   - Halmarks
+#'   - Hallmarks
 #'   - L1000
 #'   - Stable
 #'

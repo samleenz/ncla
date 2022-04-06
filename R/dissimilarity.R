@@ -24,9 +24,9 @@
 #' @examples
 dissim <- function(x, f, g = NULL){
   if(f == "L1"){
-    d <- philentropy::distance(x, "manhattan", mute.message = TRUE)
+    d <- philentropy::distance(x, "manhattan", mute.message = TRUE, use.row.names = TRUE)
   } else if(f == "L2"){
-    d <- philentropy::distance(x, "euclidean", mute.message = TRUE)
+    d <- philentropy::distance(x, "euclidean", mute.message = TRUE, use.row.names = TRUE)
   } else if(f == "cosine"){
     d <- acos(cosine(x)) / pi
   } else if(f == "pearson"){
@@ -38,17 +38,25 @@ dissim <- function(x, f, g = NULL){
       x,
       "jensen-shannon",
       est.prob = "empirical",
-      mute.message = TRUE
+      mute.message = TRUE,
+      use.row.names = TRUE
       )
   } else if(f == "bhattacharyya"){
     d <- philentropy::distance(
       x,
       "bhattacharyya",
       est.prob = "empirical",
-      mute.message = TRUE
+      mute.message = TRUE,
+      use.row.names = TRUE
       )
   } else if(f == "F5"){ # fractional minkowksi distnace, p = 0.5
-    d <- philentropy::distance(x, "minkowski", p = 0.5, mute.message = TRUE)
+    d <- philentropy::distance(
+      x,
+      "minkowski",
+      p = 0.5,
+      mute.message = TRUE,
+      use.row.names = TRUE
+      )
   } else if(f == "TSD"){# Transcriptome Signature Distance
     d <- calcTSD(x, g)
   } else {

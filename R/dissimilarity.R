@@ -95,3 +95,52 @@ cosine <- function(x){
   s
 
 }
+
+
+
+
+#' (internal) cross distance
+#'
+#' @param x length p vector
+#' @param y matrix with p cols
+#' @param f
+#' @param g
+#'
+#' @return
+#'
+#' @examples
+.xdissim <- function(x, y, f, g = NULL){
+  # for each row in y, calculate f() with x
+  purrr::map(
+    rownames(y),
+    ~ rbind(y[.x, ], x)
+  ) |>
+    purrr::map(dissim, f = f, g = g) |>
+    purrr::map_dbl(2) # grab the top-right of the 2x2 distance
+  #                     matrix that is returned
+}
+
+#' cross distance
+#'
+#' Given two matrices, x and y, find the distance between each row of x to each row of y
+#'
+#' @param x a row matrix (or coercable dataframe)
+#' @param y a row matrix (or coercable dataframe)
+#' @param f function to use, see dissim
+#' @param g gene space for tsd, see dissim
+#'
+#' @return
+#' @export
+#'
+#' @examples
+xdissim <- function(x, y, f, g = NULL){
+  # given matrix x, get dissim of each row of x to each row of y
+  # return as nrow(x) x nrow(y) matrix
+  raw_d <- purrr::map(
+    rownames(x),
+    ~ .xdissim(x[.x,], y, f, g)
+  )
+
+  # convert list of distances to matrix
+  matrix(unlist(raw_d), ncol = nrow(y), byrow = TRUE, dimnames = list(rownames(x), rownames(y)))
+}

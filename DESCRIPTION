@@ -23,7 +23,8 @@ Imports:
     stringr,
     umap,
     matrixStats,
-    magrittr
+    magrittr,
+    purrr
 RoxygenNote: 7.1.2
 Depends: 
-    R (>= 2.10)
+    R (>= 3.5.0)

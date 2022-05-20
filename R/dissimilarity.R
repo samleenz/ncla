@@ -144,3 +144,45 @@ xdissim <- function(x, y, f, g = NULL){
   # convert list of distances to matrix
   matrix(unlist(raw_d), ncol = nrow(y), byrow = TRUE, dimnames = list(rownames(x), rownames(y)))
 }
+
+#' k nearest samples
+#'
+#' Given a matrix of cross distances, return the k nearest neighbours
+#' for each of the queries (rows)
+#'
+#' @param xd
+#' @param k
+#'
+#' @return a `nrow(xd)` length list with k named + sorted elements per list
+#' @export
+#'
+#' @examples
+kns <- function(xd, k = 1){
+  # take cross dist matrix and return k nearest samples
+  neighbs <- purrr::map(
+    rownames(xd),
+    ~ rank(xd[.x, ], ties.method = "min")
+  ) |>
+    purrr::map(~ .x[.x <= k]) |> # keep only those below our neighbour cutoff
+    purrr::map(sort)# |>
+
+  names(neighbs) <- rownames(xd)
+
+  neighbs
+}
+
+#' kns tidy
+#'
+#' transform ks output into a tidy table
+#'
+#' @param x output of kns()
+#'
+#' @return 3 column tibble (query, reference, rank)
+#' @export
+#'
+#' @examples
+kns_tidy <- function(x){
+  x |>
+    purrr::map_df(enframe, name = "reference", value = "rank", .id = "query") |>
+    dplyr::select(query, reference, rank)
+}

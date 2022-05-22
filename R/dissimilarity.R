@@ -183,6 +183,6 @@ kns <- function(xd, k = 1){
 #' @examples
 kns_tidy <- function(x){
   x |>
-    purrr::map_df(enframe, name = "reference", value = "rank", .id = "query") |>
+    purrr::map_df(tibble::enframe, name = "reference", value = "rank", .id = "query") |>
     dplyr::select(query, reference, rank)
 }

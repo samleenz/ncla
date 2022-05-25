@@ -136,7 +136,7 @@ cosine <- function(x){
 xdissim <- function(x, y, f, g = NULL){
   # given matrix x, get dissim of each row of x to each row of y
   # return as nrow(x) x nrow(y) matrix
-  raw_d <- purrr::map(
+  raw_d <- furrr::future_map(
     rownames(x),
     ~ .xdissim(x[.x,], y, f, g)
   )

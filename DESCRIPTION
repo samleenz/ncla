@@ -24,7 +24,8 @@ Imports:
     matrixStats,
     magrittr,
     purrr,
-    tibble
+    tibble,
+    furrr
 RoxygenNote: 7.1.2
 Depends: 
     R (>= 3.5.0)

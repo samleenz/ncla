@@ -23,7 +23,9 @@ Imports:
     stringr,
     umap,
     matrixStats,
-    magrittr
+    magrittr,
+    limma,
+    batchelor
 RoxygenNote: 7.1.2
 Depends: 
     R (>= 2.10)

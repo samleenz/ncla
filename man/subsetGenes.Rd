@@ -10,7 +10,7 @@ subsetGenes(x, f)
 \item{x}{row matrix where columns are ENSG labelled gens}
 
 \item{f}{character name of geneset to use
-- Halmarks
+- Hallmarks
 - L1000
 - Stable}
 }

@@ -12,9 +12,6 @@ calcRCD(x, g = NULL)
 \item{g}{a character vector of feature names (colnames(x)) to use as atlas
 genes for TSD}
 }
-\value{
-
-}
 \description{
 Given a matrix x with samples in rows and genes in columns calculate the
 Ranking Correlation Distance defined my Manatakis et al. 2021

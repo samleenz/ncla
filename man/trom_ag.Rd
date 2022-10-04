@@ -15,9 +15,6 @@ trom_ag(ag1, ag2, total, n_test = 1)
 
 \item{n_test}{total number of tests for multiple testing correction}
 }
-\value{
-
-}
 \description{
 given two sets of associated genes, calculate the TROM score
 }

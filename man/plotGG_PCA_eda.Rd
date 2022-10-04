@@ -19,9 +19,6 @@ which has a max n of 9}
 
 \item{title}{a title for the plot}
 }
-\value{
-
-}
 \description{
 Make a PCA plot with specific group colourings for two select PCs
 }

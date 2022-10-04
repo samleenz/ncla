@@ -14,9 +14,6 @@ subsetGenes(x, f)
 - L1000
 - Stable}
 }
-\value{
-
-}
 \description{
 subset a gene-expression matrix with a defined geneset
 }

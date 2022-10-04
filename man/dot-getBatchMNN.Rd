@@ -9,9 +9,6 @@
 \arguments{
 \item{batch}{}
 }
-\value{
-
-}
 \description{
 internal function to extract individual batch from MNN corrected df
 }

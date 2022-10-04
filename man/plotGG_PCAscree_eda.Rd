@@ -11,9 +11,6 @@ plotGG_PCAscree_eda(dat, title = "")
 
 \item{title}{a title for the plot}
 }
-\value{
-
-}
 \description{
 Plot PCA scree plot (ggplot edition)
 }

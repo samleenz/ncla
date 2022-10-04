@@ -17,9 +17,6 @@ which has a max n of 9}
 
 \item{title}{title of the plot}
 }
-\value{
-
-}
 \description{
 Plot UMAP (ggplot edition)
 }

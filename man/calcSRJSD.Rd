@@ -12,9 +12,6 @@ calcSRJSD(x, g = NULL)
 \item{g}{a character vector of feature names (colnames(x)) to use as atlas
 genes for TSD}
 }
-\value{
-
-}
 \description{
 Calculate square-root of the Jensen-Shannon divergence
 for rows of matrix x

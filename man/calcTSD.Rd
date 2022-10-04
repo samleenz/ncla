@@ -12,9 +12,6 @@ calcTSD(x, g = NULL)
 \item{g}{a character vector of feature names (colnames(x)) to use as atlas
 genes for TSD}
 }
-\value{
-
-}
 \description{
 Given a gene expression matrix, x, with samples in rows calculate the
 pairwise Transcriptome Signature Distances as per Manatakis et al. 2021

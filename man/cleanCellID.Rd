@@ -15,9 +15,6 @@ One of
   - klijn2015Full
   - ccleFull}
 }
-\value{
-
-}
 \description{
 given a character vector of cell-line IDs, return a standardised version.
 }

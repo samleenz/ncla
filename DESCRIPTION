@@ -15,7 +15,9 @@ Suggests:
     testthat (>= 3.0.0),
     RColorBrewer,
     tibble,
-    tidyr
+    tidyr,
+    limma,
+    batchelor
 Config/testthat/edition: 3
 Imports: 
     stats,
@@ -23,9 +25,7 @@ Imports:
     stringr,
     umap,
     matrixStats,
-    magrittr,
-    limma,
-    batchelor
+    magrittr
 RoxygenNote: 7.2.1
 Depends: 
     R (>= 2.10)

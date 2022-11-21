@@ -2,6 +2,8 @@
 #'
 #' Wrapper for batch correction of two datasets
 #'
+#' Make sure you have the package needed install (limma or batchelor)
+#'
 #' @param x datasset one: sample x gene matrix
 #' @param y datasset one: sample x gene matrix
 #' @param method oneof c("MNN", "limma")
@@ -12,6 +14,14 @@
 #'
 #' @examples
 batchCorrect <- function(x, y, method = "limma", prop.k = 0.05){
+  if (!requireNamespace("pkg", quietly = TRUE)) {
+    stop(
+      "Package \"pkg\" must be installed to use this function.",
+      call. = FALSE
+    )
+  }
+
+
   # check x and y are dataframes
 
   # make feature space identical

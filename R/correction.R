@@ -39,10 +39,10 @@ batchCorrect <- function(x, y, method = "limma", prop.k = 0.05){
   if(method == "limma"){
 
     # make combined data
-    dat <- rbind(x, y) |>
+    dat <- rbind(x, y) %>%
       t()
 
-    dat_bc <- transformData(dat, "log2") |>
+    dat_bc <- transformData(dat, "log2") %>%
       limma::removeBatchEffect(
         batch = c(rep("one", length(rn_x)), rep("two", length(rn_y)))
         )
@@ -111,8 +111,8 @@ batchCorrect <- function(x, y, method = "limma", prop.k = 0.05){
 
   df <- sce[, sce$batch == batches[[batch]]]
 
-  x <- df |>
-    SummarizedExperiment::assay("reconstructed") |>
+  x <- df %>%
+    SummarizedExperiment::assay("reconstructed") %>%
     as.data.frame()
 
   colnames(x) <- stringr::str_remove(colnames(x), paste0(batch, "_"))

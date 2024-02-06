@@ -6,12 +6,12 @@
 #' and `reference = y[, genes]`.
 #'
 #' Internally, this function uses foreach with the
-#' ability to run in parallel, see `doParallel::registerDoParallel()` for how to
+#' ability to run in parallel, see [doParallel::registerDoParallel()] for how to
 #' register a parallel backend.
 #'
 #' @param query row matrix with samples to query
 #' @param reference row matrix with samples to use as the reference
-#' @param f The dissimilarity function to use, see `dissim()`
+#' @param f The dissimilarity function to use, see [dissim()]
 #'
 #' @return a data.frame
 #' @export

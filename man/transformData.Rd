@@ -10,10 +10,12 @@ transformData(x, f)
 \item{x}{the row matrix}
 
 \item{f}{transformation to apply, one of:
-- none: return the same matrix
-- log2: log-2 transform with pseudo-count of one
-- scale: scale and center
-- pcaN  : PCA where N PCs are kept}
+\itemize{
+\item none: return the same matrix
+\item log2: log-2 transform with pseudo-count of one
+\item scale: scale and center
+\item pcaN  : PCA where N PCs are kept
+}}
 }
 \value{
 the transformed data matrix

@@ -13,10 +13,10 @@ cosine(x)
 \arguments{
 \item{x}{row matrix
 
- @return n x n similarity matrix
- @export
+@return n x n similarity matrix
+@export
 
- @examples}
+@examples}
 }
 \description{
 cosine: calculate the cosine similarity of rows of matrix x

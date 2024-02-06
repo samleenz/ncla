@@ -9,11 +9,11 @@ cleanCellID(x, dataset)
 \arguments{
 \item{x}{character vector of cell IDs}
 
-\item{dataset}{character denoting which cell line the IDs `x` are from
+\item{dataset}{character denoting which cell line the IDs \code{x} are from
 One of
-  - nci60Full
-  - klijn2015Full
-  - ccleFull}
+- nci60Full
+- klijn2015Full
+- ccleFull}
 }
 \description{
 given a character vector of cell-line IDs, return a standardised version.

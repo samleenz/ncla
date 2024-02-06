@@ -7,7 +7,7 @@
 plotGG_PCAscree_eda(dat, title = "")
 }
 \arguments{
-\item{dat}{the PCA object: output of `prcomp`}
+\item{dat}{the PCA object: output of \code{prcomp}}
 
 \item{title}{a title for the plot}
 }

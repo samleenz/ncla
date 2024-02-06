@@ -10,9 +10,11 @@ subsetGenes(x, f)
 \item{x}{row matrix where columns are ENSG labelled gens}
 
 \item{f}{character name of geneset to use
-- Hallmarks
-- L1000
-- Stable}
+\itemize{
+\item Hallmarks
+\item L1000
+\item Stable
+}}
 }
 \description{
 subset a gene-expression matrix with a defined geneset

@@ -10,17 +10,19 @@ dissim(x, f, g = NULL)
 \item{x}{row matrix}
 
 \item{f}{dissimilarity measure to use; one of
-- "L1"
-- "L2"
-- "cosine"
-- "pearson"
-- "spearman"
-- "JSD"
-- "bhattacharyya"
-- "TSD"
+\itemize{
+\item "L1"
+\item "L2"
+\item "cosine"
+\item "pearson"
+\item "spearman"
+\item "JSD"
+\item "bhattacharyya"
+\item "TSD"
 note: jensen-shannon and bhattacharyya distance use relative
 frequencies to calculate probability vectors and will
-fail if data contains negative values}
+fail if data contains negative values
+}}
 
 \item{g}{optional, the gene space to use for TSD, if NULL -
 all genes will be used.}

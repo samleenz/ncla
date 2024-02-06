@@ -7,7 +7,7 @@
 trom2(x, z = 1.5)
 }
 \arguments{
-\item{x}{a n x m data frame, normalised gene expression with *n* samples in rows}
+\item{x}{a n x m data frame, normalised gene expression with \emph{n} samples in rows}
 
 \item{z}{z-score threshold for associated genes}
 }

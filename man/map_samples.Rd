@@ -11,19 +11,19 @@ map_samples(query, reference, f)
 
 \item{reference}{row matrix with samples to use as the reference}
 
-\item{f}{The dissimilarity function to use, see [dissim()]}
+\item{f}{The dissimilarity function to use, see \code{\link[=dissim]{dissim()}}}
 }
 \value{
 a data.frame
 }
 \description{
-For a given set of `query` samples, perform dissimilarity mapping against the
-supplied `reference` using the dissimilarity measure specified by `f`. This
-function enforces that the features are the same, e.g. `query = x[, genes]`
-and `reference = y[, genes]`.
+For a given set of \code{query} samples, perform dissimilarity mapping against the
+supplied \code{reference} using the dissimilarity measure specified by \code{f}. This
+function enforces that the features are the same, e.g. \code{query = x[, genes]}
+and \code{reference = y[, genes]}.
 }
 \details{
 Internally, this function uses foreach with the
-ability to run in parallel, see [doParallel::registerDoParallel()] for how to
+ability to run in parallel, see \code{\link[doParallel:registerDoParallel]{doParallel::registerDoParallel()}} for how to
 register a parallel backend.
 }

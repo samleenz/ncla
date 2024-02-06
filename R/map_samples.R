@@ -1,4 +1,4 @@
-#' nearest cell line analysis
+#' map_samples
 #'
 #' For a given set of `query` samples, perform dissimilarity mapping against the
 #' supplied `reference` using the dissimilarity measure specified by `f`. This
@@ -17,7 +17,7 @@
 #' @export
 #'
 #' @examples
-ncla <- function(query, reference, f){
+map_samples <- function(query, reference, f){
   if(! all(colnames(query) == colnames(reference))){
     stop("Columns of query and reference must be identical")
   }

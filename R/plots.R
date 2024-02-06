@@ -95,12 +95,20 @@ plotGG_RLE_EDA <- function(exprs, group, pal = NULL, title = ""){
 #' @export
 #'
 #' @examples
-plotGG_PCA_eda <- function(dat, group, PCs = c(1,2), pal = NULL, title = ""){
+plotGG_PCA_eda <- function(dat, group, shape = NULL, PCs = c(1,2), pal = NULL, title = ""){
   check_plotting_packages()
 
   # replace any punctuation in group with whitespace
   group <- stringr::str_replace_all(group, "[[:punct:]]", " ") %>%
     as.factor()
+
+  if(is.null(shape)){
+    shape <- "circle"
+  } else{
+    shape <- stringr::str_replace_all(shape, "[[:punct:]]", " ") %>%
+      as.factor()
+  }
+
 
   ## set palette to Set1 if null
   if(is.null(pal)){
@@ -118,7 +126,8 @@ plotGG_PCA_eda <- function(dat, group, PCs = c(1,2), pal = NULL, title = ""){
       ggplot2::aes(
         x = get(paste0("PC", PCs[1])),
         y = get(paste0("PC", PCs[2])),
-        col = group
+        col = group,
+        shape = shape
         )) +
     ggplot2::geom_point(size = 3) +
     ggpubr::theme_pubr(border = TRUE, legend = "right") +

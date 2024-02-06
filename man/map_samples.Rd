@@ -11,7 +11,7 @@ map_samples(query, reference, f)
 
 \item{reference}{row matrix with samples to use as the reference}
 
-\item{f}{The dissimilarity function to use, see `dissim()`}
+\item{f}{The dissimilarity function to use, see [dissim()]}
 }
 \value{
 a data.frame
@@ -24,6 +24,6 @@ and `reference = y[, genes]`.
 }
 \details{
 Internally, this function uses foreach with the
-ability to run in parallel, see `doParallel::registerDoParallel()` for how to
+ability to run in parallel, see [doParallel::registerDoParallel()] for how to
 register a parallel backend.
 }

@@ -4,7 +4,7 @@
 \alias{plotGG_PCA_eda}
 \title{plot PCA (ggplot edition)}
 \usage{
-plotGG_PCA_eda(dat, group, PCs = c(1, 2), pal = NULL, title = "")
+plotGG_PCA_eda(dat, group, shape = NULL, PCs = c(1, 2), pal = NULL, title = "")
 }
 \arguments{
 \item{dat}{the PCA object: output of `prcomp`}

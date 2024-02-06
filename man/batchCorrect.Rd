@@ -21,3 +21,6 @@ legnth two list of batch corrected datasets
 \description{
 Wrapper for batch correction of two datasets
 }
+\details{
+Make sure you have the package needed install (limma or batchelor)
+}
